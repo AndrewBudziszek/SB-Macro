@@ -1,12 +1,21 @@
-# sb_macro
+# SonBrooks Macropad 
+This work in progress macropad is a simple macropad with 5 hot-swappable keys(with RGB of course), a rotary encoder, and an 128x32 OLED display. This firmware contains the following coded layers:
+* Layer Select
+* Application Launch Layer
+* RGB Show Layer
+* Discord Control Layer (WIP)
+* Programming Layer
 
-![sb_macro](imgur.com image replace me!)
+![SonBrooks Macropad](macropad_img.jpg "SB")
 
-*A short description of the keyboard/project*
+This is built on a custom PCB ran by an Arduino Pro Micro.
 
-* Keyboard Maintainer: [Andrew Budziszek](https://github.com/yourusername)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+
+5 Keys, 1 Rotary Encoder, an OLED, and a Pro Micro is all you need!
+
+* Keyboard Maintainer: [Andrew Budziszek](https://github.com/SonnyBrooks)
+* Hardware Supported: Pro Micro (ATMEGA32U4)
+* Hardware Availability: All hardware can be found on Amazon.
 
 Make example for this keyboard (after setting up your build environment):
 

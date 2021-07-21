@@ -26,4 +26,4 @@
  * The second converts the arguments into a two-dimensional array which
  * represents the switch matrix.
  */
-#define LAYOUT(KC_0, KC_1, KC_2, KC_3, KC_4)
+ #define LAYOUT(k0, k9, k1, k2, k3, k4) {{k0, k9, k1, k2, k3, k4}}

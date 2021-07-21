@@ -20,17 +20,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID    0xFEED
-#define PRODUCT_ID   0x0000
+#define VENDOR_ID    0xa455
+#define PRODUCT_ID   0x01A4
 #define DEVICE_VER   0x0001
-#define MANUFACTURER Andrew Budziszek
+#define MANUFACTURER SonBrooks
 #define PRODUCT      sb_macro
 
 /* key matrix size */
 #define MATRIX_ROWS 1
-#define MATRIX_COLS 5
+#define MATRIX_COLS 6
+#define DIRECT_PINS { { B5, D4, C6, D7, E6, B4 } }
+/*
+    RE, 1, 2, 3, 4, 5
+*/
 
-#define UNUSED_PINS
-#define DIRECT_PINS { { D4, C6, D7, E6, B4 } }
+
+/* RGB configuration */
 #define RGB_DI_PIN B6
-#define UNUSED_PINS
+#define RGBLED_NUM 5
+#define RGBLIGHT_DEFAULT_HUE 201
+#define RGBLIGHT_ANIMATIONS RGBLIGHT_MODE_RGB_TEST
+
+/* Rotary Encoder */
+#define ENCODERS_PAD_A { B2 }
+#define ENCODERS_PAD_B { B3 }
+#define ENCODER_RESOLUTION 4
+
+/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
+#define DEBOUNCE 5

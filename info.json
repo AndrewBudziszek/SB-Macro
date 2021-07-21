@@ -1,5 +1,15 @@
 {
-    "keyboard_name": "sb_macro",
-    "url": "",
-    "maintainer": "Andrew Budziszek"
-}
+    "name": "sb macro",
+    "vendorId": "0x0001",
+    "productId": "0x0001",
+    "lighting": "qmk_rgblight",
+    "matrix": { "rows": 1, "cols": 5 },
+    "layouts": {
+      "LAYOUT": {
+        "key_count": 5,
+        "layout": [
+          {"x": 0, "y": 5}
+        ]
+      }
+    }
+  }
