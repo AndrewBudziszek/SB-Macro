@@ -6,7 +6,7 @@ This work in progress macropad is a simple macropad with 5 hot-swappable keys(wi
 * Discord Control Layer (WIP)
 * Programming Layer
 
-![SonBrooks Macropad](macropad_img.jpg "SB")
+![SonBrooks Macropad](macropad_img.JPG "SB")
 
 This is built on a custom PCB ran by an Arduino Pro Micro.
 
