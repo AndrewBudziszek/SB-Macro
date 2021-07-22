@@ -21,7 +21,8 @@ enum layers {
     _RGB_LAYER,
     _DISCORD_LAYER,
     _STREAMLABS_LAYER,
-    _PROGRAMMING_LAYER
+    _PROGRAMMING_LAYER,
+    _MAC_LAYER
 };
 
 enum custom_keycodes {
@@ -36,7 +37,10 @@ enum custom_keycodes {
     SAVE,
     PASTE,
     HOME,
-    CTL_TAB
+    CTL_TAB,
+    TOGGLE_MUTE_ZOOM,
+    END_ZOOM_CALL,
+    PLACEHOLDER_KEYCODE
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -45,9 +49,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_APPLICATION_LAUNCH_LAYER] = LAYOUT(TO(_RGB_LAYER), STEAM, DISCORD, SLACK, WEB_BROWSER, FILE_BROWSER),
     [_RGB_LAYER] = LAYOUT(TO(_DISCORD_LAYER), RGB_MODE_RAINBOW, RGB_MODE_RGBTEST, RGB_MODE_KNIGHT, RGB_MODE_SNAKE, RGB_MODE_XMAS),
     [_DISCORD_LAYER] = LAYOUT(TO(_PROGRAMMING_LAYER), MUTE_DISCORD, RGB_MODE_RAINBOW, RGB_MODE_RGBTEST, RGB_MODE_KNIGHT, RGB_MODE_SNAKE),
-    [_PROGRAMMING_LAYER] = LAYOUT(TO(_TOP_LAYER), SAVE, CTL_TAB, COPY, PASTE, HOME)
+    [_PROGRAMMING_LAYER] = LAYOUT(TO(_TOP_LAYER), SAVE, CTL_TAB, COPY, PASTE, HOME),
+    [_MAC_LAYER] = LAYOUT(TO(_TOP_LAYER), TOGGLE_MUTE_ZOOM, END_ZOOM_CALL, PLACEHOLDER_KEYCODE, PLACEHOLDER_KEYCODE, PLACEHOLDER_KEYCODE)
     // [_STREAMLABS_LAYER] = LAYOUT(),
-    // [_PROGRAMMING_LAYER] = LAYOUT()
 };
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
@@ -137,8 +141,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(C(KC_TAB));
             }
             break;
-
-        
+        case TOGGLE_MUTE_ZOOM:
+            if(record->event.pressed) {
+                tap_code16(G(S(KC_A)));
+            }
+            break;
+        case PLACEHOLDER_KEYCODE:
+            if(record->event.pressed) {
+                tap_code16(KC_SPACE);
+            }
+            break;
+        case END_ZOOM_CALL:
+            if(record->event.pressed) {
+                tap_code16(G(KC_W));
+            }
+            break;
     }
     return true;
 }
@@ -168,6 +185,9 @@ void oled_task_user(void) {
             break;
         case _PROGRAMMING_LAYER:
             oled_write_P(PSTR("PRGM\n---\nSave \nCTAB \nCopy \nPaste\nHome\n"), false);
+            break;
+        case _MAC_LAYER:
+            oled_write_P(PSTR("Zoom\n---\nMute \nEND \n\n"), false);
             break;
         default:
             // Or use the write_ln shortcut over adding '\n' to the end of your string
